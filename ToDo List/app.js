@@ -6,6 +6,12 @@ app.set("view engine", "ejs");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: true}));
 
+
+// create a new folder called "public" and place your static files in it (ex: css, images, js files)
+// express.static("public") will provide a path for the static files that will be kept in one place
+// then you can refer to your static files using this relative "public" folder.
+app.use(express.static("public"));
+
 // Global variables
 var items = ["Do groceries", "Withdraw", "Go home"];
 
