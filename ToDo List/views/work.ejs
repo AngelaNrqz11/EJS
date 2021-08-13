@@ -1,0 +1,25 @@
+<%- include("header") -%>
+
+<body>
+  <div class="box">
+    <h1 id="heading"><%= workTodo %></h1>
+  </div>
+
+  <div class="box">
+
+      <% for (let i=0; i<workList.length; i++){ %>
+        <div class="item">
+          <input type="checkbox" class="item">
+          <p>
+            <%= workList[i] %>
+          </p>
+        </div>
+      <% } %>
+
+    <form class="item" action="/work" method="post">
+      <input type="text" name="todo" placeholder="Add Item" autocomplete="off">
+      <button type="submit" name="button" value=<%= workTodo %> >+</button>
+    </form>
+  </div>
+
+<%- include("footer")  -%>

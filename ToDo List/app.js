@@ -13,7 +13,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // Global variables
-var items = ["Do groceries", "Withdraw", "Go home"];
+const items = ["Do groceries", "Withdraw", "Go home"];
+const workItems = ["Create essays"];
 
 app.get("/", (request, response) => {
   // Sample: Wed Aug 04 2021 13:45:50 GMT+0800 (China Standard Time)
@@ -32,11 +33,28 @@ app.get("/", (request, response) => {
 });
 
 app.post("/", (request, response)=>{
+  console.log("Post /:", request.body);
   const todoAdd = request.body.todo;
   items.push(todoAdd);
   response.redirect("/");
   // response.render("todo", {todoNew: todoAdd});
 });
+
+
+
+app.get("/work", (request, response) => {
+  response.render("work", {workTodo: "Work List", workList: workItems});
+});
+
+app.post("/work", (request, response)=>{
+  console.log(request.body)
+  const todoAdd = request.body.todo;
+  workItems.push(todoAdd);
+  response.redirect("/work");
+});
+
+
+
 
 app.listen(3000, () => {
   console.log("Listening to port 3000.");

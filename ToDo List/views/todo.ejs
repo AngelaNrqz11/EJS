@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>To Do List</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
+<!-- EJS Layouts -->
+<%- include("header") -%>
 
 <body>
   <div class="box">
@@ -14,21 +8,20 @@
 
   <div class="box">
 
-      <% for (let i=0; i<newLists.length; i++){ %>
-        <div class="item">
-          <input type="checkbox" class="item">
-          <p>
-            <%= newLists[i] %>
-          </p>
-        </div>
-      <% } %>
+    <% for (let i=0; i<newLists.length; i++){ %>
+    <div class="item">
+      <input type="checkbox" class="item">
+      <p>
+        <%= newLists[i] %>
+      </p>
+    </div>
+    <% } %>
 
     <form class="item" action="/" method="post">
       <input type="text" name="todo" placeholder="Add Item" autocomplete="off">
-      <button type="submit" name="button">+</button>
+      <button type="submit" name="button" value=<%= whatDay %>>+</button>
     </form>
   </div>
 
-</body>
-
-</html>
+  <!-- EJS Layouts -->
+  <%- include("footer")  -%>
