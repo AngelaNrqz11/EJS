@@ -2,23 +2,23 @@
 
 <body>
   <div class="box">
-    <h1 id="heading"><%= workTodo %></h1>
+    <h1 id="heading"><%= listTitle %></h1>
   </div>
 
   <div class="box">
 
-      <% for (let i=0; i<workList.length; i++){ %>
+      <% for (let i=0; i<listItem.length; i++){ %>
         <div class="item">
           <input type="checkbox" class="item">
           <p>
-            <%= workList[i] %>
+            <%= listItem[i] %>
           </p>
         </div>
       <% } %>
 
-    <form class="item" action="/work" method="post">
+    <form class="item" action="/" method="post">
       <input type="text" name="todo" placeholder="Add Item" autocomplete="off">
-      <button type="submit" name="button" value=<%= workTodo %> >+</button>
+      <button type="submit" name="list" value=<%= listTitle %> >+</button>
     </form>
   </div>
 
